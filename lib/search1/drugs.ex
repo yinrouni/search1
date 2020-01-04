@@ -38,7 +38,7 @@ defmodule Search1.Drugs do
   def get_drug!(id) do
 	query = from d in Drug, 
 		where: d.item_id==^id,
-	preload: [:item]
+	preload: [:item, :namecodes,:namebrands,:namegenerics, [mechanisms: :item]]
         Repo.one!(query)
   end
 
@@ -201,5 +201,293 @@ defmodule Search1.Drugs do
   """
   def change_mechanism_drug(%MechanismDrug{} = mechanism_drug) do
     MechanismDrug.changeset(mechanism_drug, %{})
+  end
+
+  alias Search1.Drugs.NameCode
+
+  @doc """
+  Returns the list of namecodes.
+
+  ## Examples
+
+      iex> list_namecodes()
+      [%NameCode{}, ...]
+
+  """
+  def list_namecodes do
+    Repo.all(NameCode)
+  end
+
+  @doc """
+  Gets a single name_code.
+
+  Raises `Ecto.NoResultsError` if the Name code does not exist.
+
+  ## Examples
+
+      iex> get_name_code!(123)
+      %NameCode{}
+
+      iex> get_name_code!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_name_code!(id), do: Repo.get!(NameCode, id)
+
+  @doc """
+  Creates a name_code.
+
+  ## Examples
+
+      iex> create_name_code(%{field: value})
+      {:ok, %NameCode{}}
+
+      iex> create_name_code(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_name_code(attrs \\ %{}) do
+    %NameCode{}
+    |> NameCode.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a name_code.
+
+  ## Examples
+
+      iex> update_name_code(name_code, %{field: new_value})
+      {:ok, %NameCode{}}
+
+      iex> update_name_code(name_code, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_name_code(%NameCode{} = name_code, attrs) do
+    name_code
+    |> NameCode.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a NameCode.
+
+  ## Examples
+
+      iex> delete_name_code(name_code)
+      {:ok, %NameCode{}}
+
+      iex> delete_name_code(name_code)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_name_code(%NameCode{} = name_code) do
+    Repo.delete(name_code)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking name_code changes.
+
+  ## Examples
+
+      iex> change_name_code(name_code)
+      %Ecto.Changeset{source: %NameCode{}}
+
+  """
+  def change_name_code(%NameCode{} = name_code) do
+    NameCode.changeset(name_code, %{})
+  end
+
+  alias Search1.Drugs.NameBrand
+
+  @doc """
+  Returns the list of namebrands.
+
+  ## Examples
+
+      iex> list_namebrands()
+      [%NameBrand{}, ...]
+
+  """
+  def list_namebrands do
+    Repo.all(NameBrand)
+  end
+
+  @doc """
+  Gets a single name_brand.
+
+  Raises `Ecto.NoResultsError` if the Name brand does not exist.
+
+  ## Examples
+
+      iex> get_name_brand!(123)
+      %NameBrand{}
+
+      iex> get_name_brand!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_name_brand!(id), do: Repo.get!(NameBrand, id)
+
+  @doc """
+  Creates a name_brand.
+
+  ## Examples
+
+      iex> create_name_brand(%{field: value})
+      {:ok, %NameBrand{}}
+
+      iex> create_name_brand(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_name_brand(attrs \\ %{}) do
+    %NameBrand{}
+    |> NameBrand.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a name_brand.
+
+  ## Examples
+
+      iex> update_name_brand(name_brand, %{field: new_value})
+      {:ok, %NameBrand{}}
+
+      iex> update_name_brand(name_brand, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_name_brand(%NameBrand{} = name_brand, attrs) do
+    name_brand
+    |> NameBrand.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a NameBrand.
+
+  ## Examples
+
+      iex> delete_name_brand(name_brand)
+      {:ok, %NameBrand{}}
+
+      iex> delete_name_brand(name_brand)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_name_brand(%NameBrand{} = name_brand) do
+    Repo.delete(name_brand)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking name_brand changes.
+
+  ## Examples
+
+      iex> change_name_brand(name_brand)
+      %Ecto.Changeset{source: %NameBrand{}}
+
+  """
+  def change_name_brand(%NameBrand{} = name_brand) do
+    NameBrand.changeset(name_brand, %{})
+  end
+
+  alias Search1.Drugs.NameGeneric
+
+  @doc """
+  Returns the list of namegenerics.
+
+  ## Examples
+
+      iex> list_namegenerics()
+      [%NameGeneric{}, ...]
+
+  """
+  def list_namegenerics do
+    Repo.all(NameGeneric)
+  end
+
+  @doc """
+  Gets a single name_generic.
+
+  Raises `Ecto.NoResultsError` if the Name generic does not exist.
+
+  ## Examples
+
+      iex> get_name_generic!(123)
+      %NameGeneric{}
+
+      iex> get_name_generic!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_name_generic!(id), do: Repo.get!(NameGeneric, id)
+
+  @doc """
+  Creates a name_generic.
+
+  ## Examples
+
+      iex> create_name_generic(%{field: value})
+      {:ok, %NameGeneric{}}
+
+      iex> create_name_generic(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_name_generic(attrs \\ %{}) do
+    %NameGeneric{}
+    |> NameGeneric.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a name_generic.
+
+  ## Examples
+
+      iex> update_name_generic(name_generic, %{field: new_value})
+      {:ok, %NameGeneric{}}
+
+      iex> update_name_generic(name_generic, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_name_generic(%NameGeneric{} = name_generic, attrs) do
+    name_generic
+    |> NameGeneric.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a NameGeneric.
+
+  ## Examples
+
+      iex> delete_name_generic(name_generic)
+      {:ok, %NameGeneric{}}
+
+      iex> delete_name_generic(name_generic)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_name_generic(%NameGeneric{} = name_generic) do
+    Repo.delete(name_generic)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking name_generic changes.
+
+  ## Examples
+
+      iex> change_name_generic(name_generic)
+      %Ecto.Changeset{source: %NameGeneric{}}
+
+  """
+  def change_name_generic(%NameGeneric{} = name_generic) do
+    NameGeneric.changeset(name_generic, %{})
   end
 end

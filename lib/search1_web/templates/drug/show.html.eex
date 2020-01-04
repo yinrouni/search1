@@ -5,6 +5,44 @@
 Main Name: 
 <%= @drug.item.name %>
 </li>
+<li>Name Codes:
+<ul>
+<%= for namecode <- @drug.namecodes do %>
+	<li><%= namecode.name %></li>
+<% end %>
+</ul>
+</li>
+<li>Name Brands:
+<ul>
+<%= for name <- @drug.namebrands do %>
+	<li><%= name.name %></li>
+<% end %>
+</ul>
+</li>
+<li>Name Generics:
+<ul>
+<%= for name <- @drug.namegenerics do %>
+	<li><%= name.name %></li>
+<% end %>
+</ul>
+</li>
+
+
+<li>Mechanisms:
+<ul>
+<%= for m <- @drug.mechanisms do %>
+	<li><%= m.item.name %></li>
+<% end %>
+</ul>
+</li>
+
+<li>DevelopmentStatusSummary:
+<ul>
+<%= for name <- @drug.namegenerics do %>
+	<li><%= name.name %></li>
+<% end %>
+</ul>
+</li>
 
 </ul>
 

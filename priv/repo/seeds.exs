@@ -15,6 +15,9 @@ alias Search1.Items.Item
 alias Search1.Drugs.Drug
 alias Search1.Mechanisms.Mechanism
 alias Search1.Drugs.MechanismDrug
+alias Search1.Drugs.NameCode
+alias Search1.Drugs.NameBrand
+alias Search1.Drugs.NameGeneric
 
 Repo.insert!(%Item{name: "A", is_drug: true})
 Repo.insert!(%Item{name: "aa", is_drug: true})
@@ -37,4 +40,14 @@ Repo.insert!(%MechanismDrug{drug_id: 1, mechanism_id: 2})
 Repo.insert!(%MechanismDrug{drug_id: 2, mechanism_id: 3})
 Repo.insert!(%MechanismDrug{drug_id: 3, mechanism_id: 3})
 
+Repo.insert!(%NameCode{name: "ACode1", drug_id: 1})
+Repo.insert!(%NameCode{name: "ACode2", drug_id: 1})
+Repo.insert!(%NameCode{name: "ACode3", drug_id: 1})
+
+Repo.insert!(%NameBrand{name: "ABrand1", drug_id: 1})
+Repo.insert!(%NameBrand{name: "ABrand2", drug_id: 1})
+Repo.insert!(%NameBrand{name: "ABrand3", drug_id: 1})
+
+Repo.insert!(%NameGeneric{name: "AGeneric1", drug_id: 1})
+Repo.insert!(%NameGeneric{name: "AGeneric2", drug_id: 1})
 
