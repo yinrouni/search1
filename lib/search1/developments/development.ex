@@ -12,6 +12,9 @@ defmodule Search1.Developments.Development do
     has_many :dev_organizations, Search1.Organizations.DevOrganization
     has_many :organizations, through: [:dev_organizations, :organization]
 
+     has_many :dev_ads, Search1.Administrations.DevAd
+    has_many :administrations, through: [:dev_ads, :administration]
+
     timestamps()
   end
 

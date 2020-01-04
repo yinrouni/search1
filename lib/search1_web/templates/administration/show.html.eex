@@ -1,0 +1,13 @@
+<h1>Show Administration</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @administration.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.administration_path(@conn, :edit, @administration) %></span>
+<span><%= link "Back", to: Routes.administration_path(@conn, :index) %></span>

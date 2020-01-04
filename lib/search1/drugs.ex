@@ -40,7 +40,7 @@ defmodule Search1.Drugs do
 		where: d.item_id==^id,
 	preload: [:item, :namecodes,:namebrands,:namegenerics, [mechanisms: :item],
 		 [developments: :condition],[developments: :phasehighst], [developments: :dev_organizations], 
-		[developments: :organizations]]
+		[developments: :organizations], [developments: :dev_ads], [developments: :administrations]]
         Repo.one!(query)
   end
 

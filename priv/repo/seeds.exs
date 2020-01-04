@@ -23,10 +23,17 @@ alias Search1.Developments.Condition
 alias Search1.Developments.PhaseHighest
 alias Search1.Organizations.Organization
 alias Search1.Organizations.DevOrganization
+alias Search1.Administrations.Administration
+alias Search1.Administrations.DevAd
 
 
 Repo.insert!(%Organization{name: "Merck &amp; Co."})
 Repo.insert!(%Organization{name: "Wick &amp; Co."})
+
+Repo.insert!(%Administration{name: "oral"})
+Repo.insert!(%Administration{name: "intravenous"})
+Repo.insert!(%Administration{name: "parenteral"})
+
 
 
 Repo.insert!(%Item{name: "A", is_drug: true})
@@ -74,6 +81,11 @@ Repo.insert!(%Development{is_active: true, year: 2010, drug_id: 1, condition_id:
 Repo.insert!(%DevOrganization{development_id: 1, organization_id: 1})
 Repo.insert!(%DevOrganization{development_id: 1, organization_id: 2})
 Repo.insert!(%DevOrganization{development_id: 2, organization_id: 1})
+
+Repo.insert!(%DevAd{development_id: 1, administration_id: 1})
+Repo.insert!(%DevAd{development_id: 2, administration_id: 2})
+Repo.insert!(%DevAd{development_id: 2, administration_id: 3})
+
 
 
 

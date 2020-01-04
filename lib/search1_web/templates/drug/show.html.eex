@@ -67,6 +67,14 @@ Main Name:
 				<% end %>
 			</ul>
 		</td>
+		<td>
+			<ul>
+				<%= for a <- d.administrations do %>
+				<li><%= a.name %></li>
+				<% end %>
+			</ul>
+		</td>
+
 	</tr>
 <% end %>
 <tbody>

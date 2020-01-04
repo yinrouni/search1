@@ -1,0 +1,26 @@
+<h1>Listing Administrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for administration <- @administrations do %>
+    <tr>
+      <td><%= administration.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.administration_path(@conn, :show, administration) %></span>
+        <span><%= link "Edit", to: Routes.administration_path(@conn, :edit, administration) %></span>
+        <span><%= link "Delete", to: Routes.administration_path(@conn, :delete, administration), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Administration", to: Routes.administration_path(@conn, :new) %></span>
