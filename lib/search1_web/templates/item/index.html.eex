@@ -1,0 +1,44 @@
+<div class="container">
+<div class="row">
+<div class="col">
+<h2>Drugs:</h2>
+
+<table>
+
+  <tbody>
+<%= for item <- @items do %>
+   <%= if item.is_drug do %>
+    <tr>
+     
+      <td>
+        <span><%= link item.name, to: Routes.drug_path(@conn, :show, item) %></span>
+      </td>
+    </tr>
+   <% end %>
+<% end %>
+  </tbody>
+</table>
+</div>
+<div class="col">
+<h2> Mechanisms:</h2>
+<table>
+  <tbody>
+<%= for item <- @items do %>
+  <%= if !item.is_drug do %>
+    <tr>
+
+      <td>
+        <span><%= link item.name, to: Routes.mechanism_path(@conn, :show, item) %></span>
+      </td>
+    </tr>
+<% end %>
+<% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+

@@ -1,0 +1,12 @@
+<h1>Show Drug</h1>
+
+<ul>
+<li>
+Main Name: 
+<%= @drug.item.name %>
+</li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.drug_path(@conn, :edit, @drug) %></span>
+<span><%= link "Back", to: Routes.drug_path(@conn, :index) %></span>

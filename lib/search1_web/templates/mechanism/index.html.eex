@@ -1,0 +1,24 @@
+<h1>Listing Mechanisms</h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for mechanism <- @mechanisms do %>
+    <tr>
+
+      <td>
+        <span><%= link "Show", to: Routes.mechanism_path(@conn, :show, mechanism) %></span>
+        <span><%= link "Edit", to: Routes.mechanism_path(@conn, :edit, mechanism) %></span>
+        <span><%= link "Delete", to: Routes.mechanism_path(@conn, :delete, mechanism), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Mechanism", to: Routes.mechanism_path(@conn, :new) %></span>

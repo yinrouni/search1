@@ -1,0 +1,19 @@
+<h1>Show Mechanism</h1>
+
+<ul>
+<li>Name: <%= @mechanism.item.name%>
+</li>
+<li>
+Drugs related:
+<table>
+<%= for drug <- @mechanism.drugs do %>
+<tr>
+<td><%= link drug.item.name, to: Routes.drug_path(@conn, :show, drug) %>
+</tr>
+<% end %>
+</table> 
+</li>
+</ul>
+
+<span><%= link "Edit", to: Routes.mechanism_path(@conn, :edit, @mechanism) %></span>
+<span><%= link "Back", to: Routes.mechanism_path(@conn, :index) %></span>

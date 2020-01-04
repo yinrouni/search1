@@ -1,0 +1,5 @@
+<h1>Edit Mechanism</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.mechanism_path(@conn, :update, @mechanism)) %>
+
+<span><%= link "Back", to: Routes.mechanism_path(@conn, :index) %></span>
