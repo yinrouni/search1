@@ -29,6 +29,7 @@ defmodule Search1Web.Router do
     resources "/drugs", DrugController
     resources "/mechanisms", MechanismController
     resources "/developments", DevelopmentController
+    resources "/organizations", OrganizationController
 
   end
  scope "/", Search1Web do
@@ -40,6 +41,7 @@ defmodule Search1Web.Router do
    resources "/namegenerics", NameGenericController, except: [:new, :edit]
    resources "/conditions", ConditionController, except: [:new, :edit] 
    resources "/phasehighsts", PhaseHighestController, except: [:new, :edit]
+   resources "/dev_organizations", DevOrganizationController, except: [:new, :edit]
  end 
 
   # Other scopes may use custom stacks.

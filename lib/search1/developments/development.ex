@@ -9,6 +9,9 @@ defmodule Search1.Developments.Development do
     belongs_to :condition, Search1.Developments.Condition
     belongs_to :phasehighst, Search1.Developments.PhaseHighest
 
+    has_many :dev_organizations, Search1.Organizations.DevOrganization
+    has_many :organizations, through: [:dev_organizations, :organization]
+
     timestamps()
   end
 

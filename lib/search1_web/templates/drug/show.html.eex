@@ -37,7 +37,7 @@ Main Name:
 </li>
 
 <li>DevelopmentStatusSummary:<br>
-<table class="container">
+<table class="container, table table-striped">
 <thead>
 <tr class="col">
 	<td> Condition </td>
@@ -59,6 +59,14 @@ Main Name:
 			<% end %>
 		</td>
        		<td><%= d.year %></td>
+
+		<td>
+			<ul>
+				<%= for o <- d.organizations do %>
+				<li><%= o.name %></li>
+				<% end %>
+			</ul>
+		</td>
 	</tr>
 <% end %>
 <tbody>
