@@ -1,0 +1,28 @@
+<h1>Listing Developments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Is active</th>
+      <th>Year</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for development <- @developments do %>
+    <tr>
+      <td><%= development.is_active %></td>
+      <td><%= development.year %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.development_path(@conn, :show, development) %></span>
+        <span><%= link "Edit", to: Routes.development_path(@conn, :edit, development) %></span>
+        <span><%= link "Delete", to: Routes.development_path(@conn, :delete, development), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Development", to: Routes.development_path(@conn, :new) %></span>

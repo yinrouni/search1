@@ -9,6 +9,7 @@ defmodule Search1.Drugs.Drug do
     has_many :namecodes, Search1.Drugs.NameCode
     has_many :namebrands, Search1.Drugs.NameBrand
     has_many :namegenerics, Search1.Drugs.NameGeneric
+    has_many :developments, Search1.Developments.Development
 
 
     timestamps()

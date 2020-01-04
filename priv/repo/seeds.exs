@@ -18,6 +18,9 @@ alias Search1.Drugs.MechanismDrug
 alias Search1.Drugs.NameCode
 alias Search1.Drugs.NameBrand
 alias Search1.Drugs.NameGeneric
+alias Search1.Developments.Development
+alias Search1.Developments.Condition
+alias Search1.Developments.PhaseHighest
 
 Repo.insert!(%Item{name: "A", is_drug: true})
 Repo.insert!(%Item{name: "aa", is_drug: true})
@@ -50,4 +53,15 @@ Repo.insert!(%NameBrand{name: "ABrand3", drug_id: 1})
 
 Repo.insert!(%NameGeneric{name: "AGeneric1", drug_id: 1})
 Repo.insert!(%NameGeneric{name: "AGeneric2", drug_id: 1})
+
+
+Repo.insert!(%Condition{name: "condition1"})
+Repo.insert!(%Condition{name: "condition2"})
+Repo.insert!(%PhaseHighest{status: "Launched", sort: 18})
+Repo.insert!(%PhaseHighest{status: "Not Launched", sort: 19})
+
+
+Repo.insert!(%Development{is_active: false, year: 2000, drug_id: 1, condition_id: 1, phasehighst_id: 1})
+Repo.insert!(%Development{is_active: true, year: 2010, drug_id: 1, condition_id: 1, phasehighst_id: 2})
+
 

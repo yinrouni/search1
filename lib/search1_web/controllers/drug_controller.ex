@@ -28,6 +28,7 @@ defmodule Search1Web.DrugController do
 
   def show(conn, %{"id" => id}) do
     drug = Drugs.get_drug!(id)
+    IO.inspect(drug)
     render(conn, "show.html", drug: drug)
   end
 

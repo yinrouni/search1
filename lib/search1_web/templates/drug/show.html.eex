@@ -36,12 +36,33 @@ Main Name:
 </ul>
 </li>
 
-<li>DevelopmentStatusSummary:
-<ul>
-<%= for name <- @drug.namegenerics do %>
-	<li><%= name.name %></li>
+<li>DevelopmentStatusSummary:<br>
+<table class="container">
+<thead>
+<tr class="col">
+	<td> Condition </td>
+	<td>PhaseHighest</td>
+	<td>Is Active</td>
+	<td>Year</td>
+	<td>Organizations</td>
+        <td>AdministrationRoutes</td>
+</tr>
+<thead>
+<tbody>
+<%= for d <- @drug.developments do %>
+	<tr class="col">
+		<td><%= d.condition.name %></td>
+		<td><%= d.phasehighst.status %></td>
+		<td>
+			<%= if d.is_active do %>Yes
+				<%= else %>No
+			<% end %>
+		</td>
+       		<td><%= d.year %></td>
+	</tr>
 <% end %>
-</ul>
+<tbody>
+</table>
 </li>
 
 </ul>

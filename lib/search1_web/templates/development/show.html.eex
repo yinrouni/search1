@@ -1,0 +1,18 @@
+<h1>Show Development</h1>
+
+<ul>
+
+  <li>
+    <strong>Is active:</strong>
+    <%= @development.is_active %>
+  </li>
+
+  <li>
+    <strong>Year:</strong>
+    <%= @development.year %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.development_path(@conn, :edit, @development) %></span>
+<span><%= link "Back", to: Routes.development_path(@conn, :index) %></span>

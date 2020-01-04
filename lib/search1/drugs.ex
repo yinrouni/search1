@@ -38,7 +38,8 @@ defmodule Search1.Drugs do
   def get_drug!(id) do
 	query = from d in Drug, 
 		where: d.item_id==^id,
-	preload: [:item, :namecodes,:namebrands,:namegenerics, [mechanisms: :item]]
+	preload: [:item, :namecodes,:namebrands,:namegenerics, [mechanisms: :item],
+		 [developments: :condition],[developments: :phasehighst]]
         Repo.one!(query)
   end
 
